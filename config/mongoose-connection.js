@@ -1,11 +1,16 @@
 const mongoose = require('mongoose');
+const config = require("config")
+const debug = require("debug")("development:mongoose");
+// To see logs in terminal execute: export (set for mac) DEBUG=development:*
 
-mongoose.connect("mongodb://127.0.0.1:27017/shopshpere")
+mongoose.connect(`${config.get("MONGODB_URI")}/shopshere`)
 .then(function(){
-    console.log("Connected to MongoDB");
+    debug("Connected to MongoDB");
+    // console.log("Connected to MongoDB");
 })
 .catch(function(){
-    console.log(err);
+    debug(err);
+    // console.log(err);
 })
 
 module.exports = mongoose.connection;
