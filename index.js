@@ -5,6 +5,8 @@ const ownersRouter = require("./routes/ownersRouter");
 const usersRouter = require("./routes/usersRouter");
 const productsRouter = require("./routes/productsRouter");
 
+require("dotenv").config();
+
 const db = require("./config/mongoose-connection");
 const app = express();
 
@@ -20,7 +22,7 @@ app.get("/", (req, res)=>{
 });
 
 app.use("/owners", ownersRouter);
-app.use("/ousers", usersRouter);
+app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 
 app.listen(3000);

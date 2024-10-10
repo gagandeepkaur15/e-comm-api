@@ -16,4 +16,4 @@ const userSchema = mongoose.Schema({
     gstin: String,
 });
 
-MediaSourceHandle.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model("owner", userSchema);

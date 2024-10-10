@@ -13,4 +13,4 @@ const productSchema = mongoose.Schema({
     textcolor: String,
 });
 
-MediaSourceHandle.exports = mongoose.model("product", productSchema);
+module.exports = mongoose.model("product", productSchema);
