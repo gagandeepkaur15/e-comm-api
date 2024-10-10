@@ -4,6 +4,7 @@ const path = require("path");
 const ownersRouter = require("./routes/ownersRouter");
 const usersRouter = require("./routes/usersRouter");
 const productsRouter = require("./routes/productsRouter");
+const isLoggedIn = require("./middlewares/isLoggedIn");
 
 require("dotenv").config();
 
@@ -24,5 +25,9 @@ app.get("/", (req, res)=>{
 app.use("/owners", ownersRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
+
+app.get("/shop", isLoggedIn, function (req, res){
+    res.render("shop");
+});
 
 app.listen(3000);
